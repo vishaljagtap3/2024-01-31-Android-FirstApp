@@ -71,7 +71,11 @@ public class MainActivity extends Activity {
 
         setContentView(linearLayout);
 
-        btnSetInfo.setOnClickListener(new BtnClickListener());
+        MyOnClickListener myOnClickListener = new MyOnClickListener();
+        btnSetInfo.setOnClickListener(myOnClickListener);
+        txtInfo.setOnClickListener(myOnClickListener);
+
+        /*btnSetInfo.setOnClickListener(new BtnClickListener());
         txtInfo.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -79,7 +83,7 @@ public class MainActivity extends Activity {
                         txtInfo.setText("");
                     }
                 }
-        );
+        );*/
 
         /*btnSetInfo.setOnTouchListener( new BtnTouchListener());
         btnSetInfo.setOnKeyListener(new BtnKeyListener());*/
@@ -96,6 +100,19 @@ public class MainActivity extends Activity {
         edtInfo.setText("Some text here...");
         setContentView(edtInfo);*/
     }
+
+    class MyOnClickListener implements View.OnClickListener {
+        @Override
+        public void onClick(View view) {
+            if(view == btnSetInfo) {
+                txtInfo.setText(edtInfo.getText().toString());
+            }
+            else {
+                txtInfo.setText("");
+            }
+        }
+    }
+
 
     class BtnClickListener implements View.OnClickListener {
         @Override
