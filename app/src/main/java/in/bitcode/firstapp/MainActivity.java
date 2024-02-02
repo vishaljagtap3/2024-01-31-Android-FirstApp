@@ -72,10 +72,20 @@ public class MainActivity extends Activity {
         setContentView(linearLayout);
 
         btnSetInfo.setOnClickListener(new BtnClickListener());
+        txtInfo.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        txtInfo.setText("");
+                    }
+                }
+        );
+
         /*btnSetInfo.setOnTouchListener( new BtnTouchListener());
         btnSetInfo.setOnKeyListener(new BtnKeyListener());*/
 
 
+        //for reference
         /*txtInfo = new TextView(this);
         txtInfo.setText("Welcome to BitCode!");
         txtInfo.setTextSize(50);
